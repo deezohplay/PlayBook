@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a6a9f35269646b548aa1fb1c75af86e4
+guid: 9511f90aa6ffa5e4fabb0b67fd6cab6a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: title 1_0
+      name: alarm_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 800
-        height: 800
+        x: 389
+        y: 87
+        width: 374
+        height: 393
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,8 +130,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a941a4de8ce5ef43b2e8467764f5515
-      internalID: 1293811280
+      spriteID: 29e08f2b9b4dfe2488bc457544fb0023
+      internalID: 507006839
       vertices: []
       indices: 
       edges: []
@@ -139,7 +139,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: a75b8e6ccda5c7b4da3ae4578194d5d9
+    spriteID: 2351ab6b9a537974aa9b292c5a0df997
     internalID: 0
     vertices: []
     indices: 
@@ -147,7 +147,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      title 1_0: 1293811280
+      alarm_0: 507006839
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

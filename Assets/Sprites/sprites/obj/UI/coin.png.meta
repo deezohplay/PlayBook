@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d8e154131c029c44f87b7c0c4c21c131
+guid: 8eff004f4be5ffe479a6c824ffa2a5a0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,22 +116,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: C_0
+      name: coin_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 800
-        height: 800
+        x: 64
+        y: 55
+        width: 457
+        height: 435
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f90d15758308ce4fb5689d45e0ced86
-      internalID: -78124973
+      spriteID: 57c6083e25afcc940b55410e6be9fb05
+      internalID: -576515651
       vertices: []
       indices: 
       edges: []
@@ -139,7 +139,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: e63f59672e0f034449f8199e4d05da45
+    spriteID: 0d91c2965bd98ca48b240ab970091460
     internalID: 0
     vertices: []
     indices: 
@@ -147,7 +147,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      C_0: -78124973
+      coin_0: -576515651
+      coin_1: -30802787
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
