@@ -5,49 +5,33 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
+using TMPro;
 
-public class Item : MonoBehaviour,IPointerDownHandler, IDragHandler, IPointerEnterHandler, IPointerUpHandler 
+public class Item : MonoBehaviour, IPointerEnterHandler, IPointerUpHandler, IPointerDownHandler 
 {
-    static Item objects;
-    public GameObject linePrefab;
-    public GameObject letters;
-    private GameObject line;
+    static Item letters;
+    public GameObject objects;
+    private int score;
 
-    public void OnDrag(PointerEventData eventData)
+    private void Awake()
     {
-        UpdateLine(eventData.position);
+      
     }
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        line = Instantiate(linePrefab, transform.position, Quaternion.identity, transform.parent.parent);
-        UpdateLine(eventData.position);
-    }
-
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        objects = this;
+        
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        if (!this.Equals(objects) && letters.Equals(objects.letters))
-        {
-            UpdateLine(objects.transform.position);
-            Destroy(objects);
-            Destroy(this);
-        }
-        else
-        {
-            Destroy(line);
-        }
+        score++;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        score = 0;
     }
 
     // Update is called once per frame
@@ -56,13 +40,9 @@ public class Item : MonoBehaviour,IPointerDownHandler, IDragHandler, IPointerEnt
         
     }
 
-    void UpdateLine(Vector3 position)
+    public void OnPointerDown(PointerEventData eventData)
     {
-        //direction
-        Vector3 direction = position - transform.position;
-        line.transform.right = direction;
-        //scale
-        line.transform.localScale = new Vector3(direction.magnitude, 1, 1);
+        letters = this;
+        Debug.Log(this);
     }
-
 }

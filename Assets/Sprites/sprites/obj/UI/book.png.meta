@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7de58c455288c8d419138c4f7fd104f9
+guid: 28c1749a4d0a48949929920c89144fcf
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,22 +116,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: title_0
+      name: book_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 122
-        width: 800
-        height: 594
+        x: 125
+        y: 112
+        width: 440
+        height: 303
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dcc7220be970c204384d1b681443c579
-      internalID: 436980265
+      spriteID: f5924f661f22cdd41ba873762faed069
+      internalID: 731842685
       vertices: []
       indices: 
       edges: []
@@ -139,7 +139,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 53eda87fb4f97bc46af113e878e68362
+    spriteID: c0d37fc656ea4d642bb25ac76673d457
     internalID: 0
     vertices: []
     indices: 
@@ -147,7 +147,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      title_0: 436980265
+      book_0: 731842685
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
