@@ -1,2 +1,2 @@
-# Match-that-Object
+# Holidayz
  Education Game for Children
