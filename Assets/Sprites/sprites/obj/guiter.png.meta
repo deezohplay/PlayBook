@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2dabfd09fdc841c47af40906650c8492
+guid: 7027161e5982a464ea24a31b9c9a3ec8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,22 +116,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: s_0
+      name: guiter_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 52
-        width: 773
+        x: 16
+        y: 55
+        width: 784
         height: 641
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c3f491c2afafd743b1c671fcc6d19e9
-      internalID: 1367540451
+      spriteID: dbdd844b11a847c41bf67764ffbe2090
+      internalID: 898885754
       vertices: []
       indices: 
       edges: []
@@ -139,7 +139,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: c917a57ed30e7504e9f38e47c080a884
+    spriteID: b8980441aeb9cf1469f25e331a1a5550
     internalID: 0
     vertices: []
     indices: 
@@ -147,7 +147,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      s_0: 1367540451
+      guiter_0: 898885754
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

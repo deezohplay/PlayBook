@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 50e942af90027524ab6351284ba90d8d
+guid: 0773e7217aa3b774a8fb2134a46bad40
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: K_0
+      name: icont_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 800
-        height: 800
+        x: 209
+        y: 3123
+        width: 611
+        height: 607
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,8 +130,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53c9fc65d4ccd1c4785c0cbb9d588437
-      internalID: -712329194
+      spriteID: 0262504b8ad1c1643bff0fedad571d02
+      internalID: 2006560069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icont_1
+      rect:
+        serializedVersion: 2
+        x: 1003
+        y: 3121
+        width: 602
+        height: 605
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d0fd124ea7bc4c498e0648f951e3956
+      internalID: 1929501248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icont_2
+      rect:
+        serializedVersion: 2
+        x: 1791
+        y: 3123
+        width: 602
+        height: 603
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eec7a422df8c4154faa8b2db8e9b3170
+      internalID: -69620440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icont_3
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 2362
+        width: 609
+        height: 605
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d02806c79e073c94c88dfffced79bbe1
+      internalID: -97790206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icont_4
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 1616
+        width: 1522
+        height: 563
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a64a7687ae2a394e8da484b096a0de1
+      internalID: -185800551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icont_5
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 1104
+        width: 1484
+        height: 396
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7151de533a9496b4aa6321c0e0b38ace
+      internalID: -960767788
       vertices: []
       indices: 
       edges: []
@@ -139,7 +244,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 13a8dca305880b8459af7da59fa76889
+    spriteID: 4b554f79b9720704ea42b0fddcc51ef4
     internalID: 0
     vertices: []
     indices: 
@@ -147,7 +252,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      K_0: -712329194
+      icont_2: -69620440
+      icont_1: 1929501248
+      icont_0: 2006560069
+      icont_5: -960767788
+      icont_3: -97790206
+      icont_4: -185800551
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

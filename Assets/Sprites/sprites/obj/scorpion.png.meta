@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fd4f31456db3a464ab501c1c21cf7efe
+guid: a19e3b99243767840911b6edda5c9e86
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: clock_obj_0
+      name: scorpion_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 800
-        height: 800
+        x: 16
+        y: 57
+        width: 784
+        height: 641
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,8 +130,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b40e65e9767384445b97a20503537792
-      internalID: 1910375465
+      spriteID: 1a716d4397f18f84bb1714ec84efad6a
+      internalID: 1761770683
       vertices: []
       indices: 
       edges: []
@@ -139,7 +139,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5d6a917064ed2f24681fa01f139a1798
+    spriteID: 25e6b38bf6f03ad4e87ed9943cb73bd0
     internalID: 0
     vertices: []
     indices: 
@@ -147,7 +147,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      clock_obj_0: 1910375465
+      scorpion_0: 1761770683
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

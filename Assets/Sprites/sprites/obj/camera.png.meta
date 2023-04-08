@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 52632f232c163b5478a0e8b2c7be2333
+guid: dd83397fbe8ddcc47872436d130b5d54
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: scorpion_obj_0
+      name: camera_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 800
-        height: 800
+        x: 16
+        y: 55
+        width: 784
+        height: 641
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,8 +130,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81d297203b5186e4787959adde65097a
-      internalID: -286699643
+      spriteID: aa953aac7b4fe75449415ceb0b0d0e47
+      internalID: 89068401
       vertices: []
       indices: 
       edges: []
@@ -139,7 +139,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 4566ca2f28ad9fe43ac0d7666684913f
+    spriteID: aef35e8b14ae5ba459c50368553951c5
     internalID: 0
     vertices: []
     indices: 
@@ -147,7 +147,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      scorpion_obj_0: -286699643
+      camera_0: 89068401
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

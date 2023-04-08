@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2f705ed591b80f94fb094ec902bbeadb
+guid: 633fc9629e66a264a99a833b597cff65
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: chopper_obj_0
+      name: g_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 800
-        height: 800
+        x: 1
+        y: 55
+        width: 773
+        height: 641
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,8 +130,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64eab31596b49a54cb47c5e24bcb05d2
-      internalID: -1674835729
+      spriteID: 407eafede141af642b2a683248018162
+      internalID: -1456349228
       vertices: []
       indices: 
       edges: []
@@ -139,7 +139,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 612b0867f36997f4e9be42d48f1a8feb
+    spriteID: 74d357ea2bb65134990a2757cb1fac0f
     internalID: 0
     vertices: []
     indices: 
@@ -147,7 +147,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      chopper_obj_0: -1674835729
+      g_0: -1456349228
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
