@@ -1,12 +1,22 @@
 using System;
 using UnityEngine;
 using UnityEngine.Sprites;
+using TMPro;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using System.Collections;
 
 public class LevelManager : MonoBehaviour
 {
     //instance
-    private static LevelManager Instance { set; get; }
-    //private Item itemScript;
+    public static LevelManager Instance { set; get; }
+    //time var
+    public float timer;
+    public TextMeshProUGUI timerText;
+    public TextMeshProUGUI scoreText;
+
+    public bool began;
+    private float timerSpeed = 0.6f;
 
     //letter class
     [System.Serializable]
@@ -52,9 +62,22 @@ public class LevelManager : MonoBehaviour
     public SpriteRenderer[] itemHolders;
 
     //positions
-    public GameObject[] holderSpot;
+    public GameObject[] leftSpot;
+    public GameObject[] rightSpot;
+    public Collider[] letterColliders;
+    public Collider[] itemColliders;
     public int position;
     public int position2;
+
+    //Ticks or Wrong
+    public GameObject tick_r1;
+    public GameObject cross_r1;
+
+    public GameObject tick_r2;
+    public GameObject cross_r2;
+
+    public GameObject tick_r3;
+    public GameObject cross_r3;
 
     //class arrays
     public Pool_1[] pool_1;
@@ -75,16 +98,23 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-         GenerateChallenge();
-         RemoveElement(ref pool_1, pool_1_Index);
-         RemoveElement(ref pool_2, pool_2_Index);
-         RemoveElement(ref pool_3, pool_3_Index);
+        began = false;
+        timer = 60.0f;
+         
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (began == true)
+        {
+            StartCoroutine(LittlelDelayOnGamePlay());
+            /*
+            RemoveElement(ref pool_1, pool_1_Index);
+            RemoveElement(ref pool_2, pool_2_Index);
+            RemoveElement(ref pool_3, pool_3_Index);
+            */
+        }
     }
 
     //Generate Indices
@@ -160,4 +190,25 @@ public class LevelManager : MonoBehaviour
         }
         Array.Resize(ref arr, arr.Length - 1);
     }
+
+    //starts game
+    public void Begin()
+    {
+        GenerateChallenge();
+        began = true;
+    }
+
+    IEnumerator LittlelDelayOnGamePlay()
+    {
+        yield return new WaitForSeconds(1.0f);
+        timer -= Time.deltaTime * timerSpeed; // Substracts 1 second
+        //Converts the time into a whole number
+        timerText.SetText("" + Mathf.Round(timer));
+        //Checks if time is less than 0 and triggers game over method
+        if (timer <= 0)
+        {
+            timer = 0;
+        }
+    }
+
 }

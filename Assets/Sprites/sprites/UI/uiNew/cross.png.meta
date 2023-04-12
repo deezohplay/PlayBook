@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2dabfd09fdc841c47af40906650c8492
+guid: 9342c14f51496d94bad2e7bd6821313d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -44,7 +44,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -116,22 +116,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: scorpion
+      name: cross_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 52
-        width: 773
-        height: 641
+        x: 34
+        y: 42
+        width: 443
+        height: 432
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c3f491c2afafd743b1c671fcc6d19e9
-      internalID: 1367540451
+      spriteID: 678c573402dcdb5479ac5a157e9f819d
+      internalID: 1581448442
       vertices: []
       indices: 
       edges: []
@@ -139,7 +139,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: c917a57ed30e7504e9f38e47c080a884
+    spriteID: c6cd3daa2b9003144b1980d1824d4d10
     internalID: 0
     vertices: []
     indices: 
@@ -147,7 +147,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      scorpion: 1367540451
+      cross_0: 1581448442
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

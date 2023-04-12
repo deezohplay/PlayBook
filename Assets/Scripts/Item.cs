@@ -5,8 +5,6 @@ using UnityEngine.Sprites;
 
 public class Item : MonoBehaviour, IPointerEnterHandler, IPointerUpHandler, IPointerDownHandler 
 {
-    static Item letters;
-
     private void Awake()
     {
       
@@ -36,6 +34,6 @@ public class Item : MonoBehaviour, IPointerEnterHandler, IPointerUpHandler, IPoi
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        
+      
     }
 }

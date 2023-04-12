@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0773e7217aa3b774a8fb2134a46bad40
+guid: d06f1a434e1bcfa4fa70be74c1526d8b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,97 +116,160 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: icont_0
+      name: next_black
       rect:
         serializedVersion: 2
-        x: 209
-        y: 3123
-        width: 611
-        height: 607
+        x: 1496
+        y: 3101
+        width: 601
+        height: 602
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0262504b8ad1c1643bff0fedad571d02
-      internalID: 2006560069
+      spriteID: e4f46ca168b46d74faef2a3a3f7e1e8e
+      internalID: 1374376160
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: icont_1
+      name: prev_black
       rect:
         serializedVersion: 2
-        x: 1003
-        y: 3121
-        width: 602
-        height: 605
+        x: 480
+        y: 2366
+        width: 603
+        height: 601
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d0fd124ea7bc4c498e0648f951e3956
-      internalID: 1929501248
+      spriteID: a6393c27ba3c7ca41ad6eda40bb7206e
+      internalID: 1474921140
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: icont_2
+      name: locked_black
+      rect:
+        serializedVersion: 2
+        x: 1495
+        y: 2367
+        width: 600
+        height: 601
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 707fdc4bfb18c944c84121517e1f8de6
+      internalID: -514782369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: locked_white
       rect:
         serializedVersion: 2
         x: 1791
-        y: 3123
-        width: 602
-        height: 603
+        y: 1324
+        width: 599
+        height: 602
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eec7a422df8c4154faa8b2db8e9b3170
-      internalID: -69620440
+      spriteID: 8e4064d5fd77de449a99e09a99efde5a
+      internalID: -983945341
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: icont_3
+      name: next_white
       rect:
         serializedVersion: 2
-        x: 210
-        y: 2362
-        width: 609
+        x: 1758
+        y: 469
+        width: 600
+        height: 601
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b690095212ce3b42ad6c38dae188200
+      internalID: 184964588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prev_white
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 1322
+        width: 601
         height: 605
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d02806c79e073c94c88dfffced79bbe1
-      internalID: -97790206
+      spriteID: db78f818c278ae043a51d0fb5f0039ae
+      internalID: -1078084961
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: icont_4
+      name: ads_white
       rect:
         serializedVersion: 2
-        x: 588
-        y: 1616
-        width: 1522
-        height: 563
+        x: 997
+        y: 1323
+        width: 607
+        height: 604
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c0283078027afa49a0e40c71c949554
+      internalID: -2022747956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ads_black
+      rect:
+        serializedVersion: 2
+        x: 1001
+        y: 479
+        width: 600
+        height: 604
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -214,29 +277,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a64a7687ae2a394e8da484b096a0de1
-      internalID: -185800551
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: icont_5
-      rect:
-        serializedVersion: 2
-        x: 514
-        y: 1104
-        width: 1484
-        height: 396
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7151de533a9496b4aa6321c0e0b38ace
-      internalID: -960767788
+      spriteID: 12b8aa6e27928c94987f07bd3ba14329
+      internalID: -1149544031
       vertices: []
       indices: 
       edges: []
@@ -244,7 +286,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 4b554f79b9720704ea42b0fddcc51ef4
+    spriteID: 4ca65b1e849bb8441a050ed9bc849406
     internalID: 0
     vertices: []
     indices: 
@@ -252,12 +294,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      icont_2: -69620440
-      icont_1: 1929501248
-      icont_0: 2006560069
-      icont_5: -960767788
-      icont_3: -97790206
-      icont_4: -185800551
+      next_black: 1374376160
+      locked_black: -514782369
+      next_white: 184964588
+      prev_black: 1474921140
+      ads_black: -1149544031
+      locked_white: -983945341
+      prev_white: -1078084961
+      ads_white: -2022747956
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

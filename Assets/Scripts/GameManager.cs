@@ -23,9 +23,20 @@ public class GameManager : MonoBehaviour
     {
         
     }
-
+    //Load Scene
     public void LoadScene()
     {
-        SceneManager.LoadScene("One");
+        SceneManager.LoadScene("Identify");
+    }
+    //exits Game
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    //mute sounds
+    public void MuteSounds()
+    {
+
     }
 }

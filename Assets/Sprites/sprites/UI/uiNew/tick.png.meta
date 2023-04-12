@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2dabfd09fdc841c47af40906650c8492
+guid: fe641e585babc904b935089974cf626f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -44,7 +44,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -116,22 +116,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: scorpion
+      name: tick_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 52
-        width: 773
-        height: 641
+        x: 13
+        y: 7
+        width: 485
+        height: 499
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c3f491c2afafd743b1c671fcc6d19e9
-      internalID: 1367540451
+      spriteID: 57a1a6448f0f728419545726bfeb642d
+      internalID: 228625775
       vertices: []
       indices: 
       edges: []
@@ -139,7 +139,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: c917a57ed30e7504e9f38e47c080a884
+    spriteID: 547ace9cd57cc804ca62e2886ac50488
     internalID: 0
     vertices: []
     indices: 
@@ -147,7 +147,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      scorpion: 1367540451
+      tick_0: 228625775
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 66e40b4b45a966b498071c4a4934665c
+guid: 991d4ca72c1ad264e8705900bf308a60
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: close
+      name: bage_0
       rect:
         serializedVersion: 2
-        x: 189
-        y: 3104
-        width: 644
-        height: 644
+        x: 51
+        y: 48
+        width: 532
+        height: 532
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,71 +130,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b0eb7b6e0a349f43803ce93bf7defe4
-      internalID: 1878041845
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: volume
-      rect:
-        serializedVersion: 2
-        x: 989
-        y: 3113
-        width: 631
-        height: 631
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 046fa1a9a8dfc084482ad6b573901bb3
-      internalID: -1270675655
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: brightness
-      rect:
-        serializedVersion: 2
-        x: 1771
-        y: 3113
-        width: 636
-        height: 626
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ad92348e6ab238f4cb3a613e9ce045ed
-      internalID: -238389903
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: play
-      rect:
-        serializedVersion: 2
-        x: 198
-        y: 2348
-        width: 635
-        height: 639
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 87c56708ec135b240a702187e8d91c87
-      internalID: -640197144
+      spriteID: 4a2316f47e13f0f4b996e18bd388b3f9
+      internalID: -1742306911
       vertices: []
       indices: 
       edges: []
@@ -202,7 +139,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: e44ff91dca6acb44dae8d92fe938b530
+    spriteID: 3425602d4aa02d143ae90d9b4e1271d9
     internalID: 0
     vertices: []
     indices: 
@@ -210,10 +147,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      brightness: -238389903
-      close: 1878041845
-      volume: -1270675655
-      play: -640197144
+      bage_0: -1742306911
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
