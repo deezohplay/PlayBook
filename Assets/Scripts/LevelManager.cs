@@ -5,9 +5,16 @@ using TMPro;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+    //countplaytimes
+    private int countRounds;
+    private int minScore;
+    private int playRounds;
+    private float timeSpent;
+    private float remainingTime;
     //instance
     public static LevelManager Instance { set; get; }
     //time var
@@ -15,8 +22,19 @@ public class LevelManager : MonoBehaviour
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI scoreText;
 
-    public bool began;
+    public TextMeshProUGUI faileScoreText;
+    public TextMeshProUGUI passedScoreText;
+
+    public bool began = false;
     private float timerSpeed = 0.6f;
+
+    //panels
+    public GameObject failed;
+    public GameObject prevBtn;
+    public GameObject pausedBtn;
+    public GameObject coin;
+    public GameObject alarm;
+    public GameObject passed;
 
     //letter class
     [System.Serializable]
@@ -98,9 +116,13 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        began = false;
+        playRounds = 6;
         timer = 60.0f;
-         
+        GenerateChallenge();
+        began = true;
+        countRounds = 0;
+        minScore = 100;
+        timeSpent = 0.0f;
     }
 
     // Update is called once per frame
@@ -109,11 +131,27 @@ public class LevelManager : MonoBehaviour
         if (began == true)
         {
             StartCoroutine(LittlelDelayOnGamePlay());
-            /*
-            RemoveElement(ref pool_1, pool_1_Index);
-            RemoveElement(ref pool_2, pool_2_Index);
-            RemoveElement(ref pool_3, pool_3_Index);
-            */
+        }
+
+        if (LineScript.Instance.dotCount == 6 && timer != 0)
+        {
+            LineScript.Instance.DestroyLineInstnces();
+            if (countRounds <= playRounds) {
+                GenerateChallenge();
+            }
+            else
+            {
+                timeSpent = timer;
+
+                if (LineScript.Instance.score >= minScore)
+                {
+                    PassedLevel();
+                }
+                else
+                {
+                    FailedLevel();
+                }
+            }
         }
     }
 
@@ -179,6 +217,11 @@ public class LevelManager : MonoBehaviour
                 itemHolders[2].sprite = pool_3[pool_3_Index].item_3;
                 break;
         }
+
+        RemoveElement(ref pool_1, pool_1_Index);
+        RemoveElement(ref pool_2, pool_2_Index);
+        RemoveElement(ref pool_3, pool_3_Index);
+        countRounds++;
     }
 
     //Remove element after it has been answered
@@ -191,13 +234,6 @@ public class LevelManager : MonoBehaviour
         Array.Resize(ref arr, arr.Length - 1);
     }
 
-    //starts game
-    public void Begin()
-    {
-        GenerateChallenge();
-        began = true;
-    }
-
     IEnumerator LittlelDelayOnGamePlay()
     {
         yield return new WaitForSeconds(1.0f);
@@ -207,8 +243,100 @@ public class LevelManager : MonoBehaviour
         //Checks if time is less than 0 and triggers game over method
         if (timer <= 0)
         {
-            timer = 0;
+            FailedLevel();
         }
+    }
+
+    //retry level
+    public void Replay()
+    {
+        //disabling gameobjects
+        failed.SetActive(false);
+        leftSpot[0].SetActive(true);
+        leftSpot[1].SetActive(true);
+        leftSpot[2].SetActive(true);
+        rightSpot[0].SetActive(true);
+        rightSpot[1].SetActive(true);
+        rightSpot[2].SetActive(true);
+        pausedBtn.SetActive(true);
+        prevBtn.SetActive(true);
+        coin.SetActive(true);
+        alarm.SetActive(true);
+        SceneManager.LoadScene("Identify");
+    }
+
+    //ads bonus play
+    public void AdBonus()
+    {
+        failed.SetActive(false);
+        leftSpot[0].SetActive(true);
+        leftSpot[1].SetActive(true);
+        leftSpot[2].SetActive(true);
+        rightSpot[0].SetActive(true);
+        rightSpot[1].SetActive(true);
+        rightSpot[2].SetActive(true);
+        pausedBtn.SetActive(true);
+        prevBtn.SetActive(true);
+        coin.SetActive(true);
+        alarm.SetActive(true);
+        timer = 30.0f;
+        GenerateChallenge();
+        began = true;
+    }
+
+    //runs if the play is over
+    public void PassedLevel()
+    {
+        TimeCalc();
+        //disabling gameobjects
+        passed.SetActive(true);
+        leftSpot[0].SetActive(false);
+        leftSpot[1].SetActive(false);
+        leftSpot[2].SetActive(false);
+        rightSpot[0].SetActive(false);
+        rightSpot[1].SetActive(false);
+        rightSpot[2].SetActive(false);
+        pausedBtn.SetActive(false);
+        prevBtn.SetActive(false);
+        coin.SetActive(false);
+        alarm.SetActive(false);
+        passedScoreText.text = LineScript.Instance.score.ToString();
+        LineScript.Instance.DestroyLineInstnces();
+        began = false;
+    }
+
+    //time calculations
+    void TimeCalc()
+    {
+        remainingTime = 60.0f - timeSpent;
+        remainingTime = Mathf.Round(remainingTime);
+        Debug.Log(remainingTime);
+    }
+    //win logic
+    public void Next()
+    {
+       
+    }
+
+    //failed method
+    public void FailedLevel()
+    {
+        //disabling gameobjects
+        failed.SetActive(true);
+        leftSpot[0].SetActive(false);
+        leftSpot[1].SetActive(false);
+        leftSpot[2].SetActive(false);
+        rightSpot[0].SetActive(false);
+        rightSpot[1].SetActive(false);
+        rightSpot[2].SetActive(false);
+        pausedBtn.SetActive(false);
+        prevBtn.SetActive(false);
+        coin.SetActive(false);
+        alarm.SetActive(false);
+        LineScript.Instance.DestroyLineInstnces();
+        faileScoreText.text = LineScript.Instance.score.ToString();
+        timer = 0;
+        began = false;
     }
 
 }

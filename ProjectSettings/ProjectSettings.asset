@@ -273,7 +273,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 7ec707299b865af45a15a63088109a8b, type: 3}
+      m_Icon: {fileID: 2800000, guid: 860146a314cbb704681e7e6c1378a0ce, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
@@ -785,7 +785,13 @@ PlayerSettings:
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
   cloudServicesEnabled:
+    Build: 0
+    Collab: 0
+    Game Performance: 0
+    Purchasing: 0
+    UDP: 0
     UNet: 1
+    Unity Ads: 1
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -799,11 +805,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
-  cloudProjectId: 
+  cloudProjectId: ebe34643-2725-457f-96d8-2f4924ade414
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: Holidayz
+  organizationId: innojosephr23
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
