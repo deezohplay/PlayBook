@@ -35,6 +35,7 @@ public class LineScript : MonoBehaviour
     public int score;
     private AudioClip letterClips;
     private AudioClip itemClips;
+    private AudioClip incoClips;
 
     public Vector3 touchPos;
 
@@ -123,51 +124,57 @@ public class LineScript : MonoBehaviour
                 {
                     item = LevelManager.Instance.rightSpot[0].GetComponent<SpriteRenderer>().sprite.name.ToString();
                     itemClips = LevelManager.Instance.itemAudios[0].GetComponent<AudioSource>().clip;
+                    incoClips = LevelManager.Instance.incoAudios[0].GetComponent<AudioSource>().clip;
                     hitRight.collider.enabled = false;
                     if (letter == item)
                     {
                         score += 5;
-                        LevelManager.Instance.letterAudios[0].PlayOneShot(itemClips, 1.0f);
+                        LevelManager.Instance.itemAudios[0].PlayOneShot(itemClips, 1.0f);
                         LevelManager.Instance.scoreText.text = score.ToString();
                         LevelManager.Instance.tick_r1.SetActive(true);
                     }
                     else
                     {
                         LevelManager.Instance.cross_r1.SetActive(true);
+                        LevelManager.Instance.incoAudios[0].PlayOneShot(incoClips, 1.0f);
                     }
                 }
                 else if (hitRight.collider == LevelManager.Instance.itemColliders[1])
                 {
                     item = LevelManager.Instance.rightSpot[1].GetComponent<SpriteRenderer>().sprite.name.ToString();
                     itemClips = LevelManager.Instance.itemAudios[1].GetComponent<AudioSource>().clip;
+                    incoClips = LevelManager.Instance.incoAudios[1].GetComponent<AudioSource>().clip;
                     hitRight.collider.enabled = false;
                     if (letter == item)
                     {
                         score += 5;
-                        LevelManager.Instance.letterAudios[1].PlayOneShot(itemClips, 1.0f);
+                        LevelManager.Instance.itemAudios[1].PlayOneShot(itemClips, 1.0f);
                         LevelManager.Instance.scoreText.text = score.ToString();
                         LevelManager.Instance.tick_r2.SetActive(true);
                     }
                     else
                     {
                         LevelManager.Instance.cross_r2.SetActive(true);
+                        LevelManager.Instance.incoAudios[1].PlayOneShot(incoClips, 1.0f);
                     }
                 }
                 else if (hitRight.collider == LevelManager.Instance.itemColliders[2])
                 {
                     item = LevelManager.Instance.rightSpot[2].GetComponent<SpriteRenderer>().sprite.name.ToString();
                     itemClips = LevelManager.Instance.itemAudios[2].GetComponent<AudioSource>().clip;
+                    incoClips = LevelManager.Instance.incoAudios[2].GetComponent<AudioSource>().clip;
                     hitRight.collider.enabled = false;
                     if (letter == item)
                     {
                         score += 5;
-                        LevelManager.Instance.letterAudios[2].PlayOneShot(itemClips, 1.0f);
+                        LevelManager.Instance.itemAudios[2].PlayOneShot(itemClips, 1.0f);
                         LevelManager.Instance.scoreText.text = score.ToString();
                         LevelManager.Instance.tick_r3.SetActive(true);
                     }
                     else
                     {
                         LevelManager.Instance.cross_r3.SetActive(true);
+                        LevelManager.Instance.incoAudios[2].PlayOneShot(incoClips, 1.0f);
                     }
                 }
             }
@@ -289,51 +296,57 @@ public class LineScript : MonoBehaviour
                             {
                                 item = LevelManager.Instance.rightSpot[0].GetComponent<SpriteRenderer>().sprite.name.ToString();
                                 itemClips = LevelManager.Instance.itemAudios[0].GetComponent<AudioSource>().clip;
+                                incoClips = LevelManager.Instance.incoAudios[0].GetComponent<AudioSource>().clip;
                                 hitRight.collider.enabled = false;
                                 if (letter == item)
                                 {
                                     score += 5;
-                                    LevelManager.Instance.letterAudios[0].PlayOneShot(itemClips, 1.0f);
+                                    LevelManager.Instance.itemAudios[0].PlayOneShot(itemClips, 1.0f);
                                     LevelManager.Instance.scoreText.text = score.ToString();
                                     LevelManager.Instance.tick_r1.SetActive(true);
                                 }
                                 else
                                 {
                                     LevelManager.Instance.cross_r1.SetActive(true);
+                                    LevelManager.Instance.incoAudios[0].PlayOneShot(incoClips, 1.0f);
                                 }
                             }
                             else if (hitRight.collider == LevelManager.Instance.itemColliders[1])
                             {
                                 item = LevelManager.Instance.rightSpot[1].GetComponent<SpriteRenderer>().sprite.name.ToString();
                                 itemClips = LevelManager.Instance.itemAudios[1].GetComponent<AudioSource>().clip;
+                                incoClips = LevelManager.Instance.incoAudios[1].GetComponent<AudioSource>().clip;
                                 hitRight.collider.enabled = false;
                                 if (letter == item)
                                 {
                                     score += 5;
-                                    LevelManager.Instance.letterAudios[1].PlayOneShot(itemClips, 1.0f);
+                                    LevelManager.Instance.itemAudios[1].PlayOneShot(itemClips, 1.0f);
                                     LevelManager.Instance.scoreText.text = score.ToString();
                                     LevelManager.Instance.tick_r2.SetActive(true);
                                 }
                                 else
                                 {
                                     LevelManager.Instance.cross_r2.SetActive(true);
+                                    LevelManager.Instance.incoAudios[1].PlayOneShot(incoClips, 1.0f);
                                 }
                             }
                             else if (hitRight.collider == LevelManager.Instance.itemColliders[2])
                             {
                                 item = LevelManager.Instance.rightSpot[2].GetComponent<SpriteRenderer>().sprite.name.ToString();
                                 itemClips = LevelManager.Instance.itemAudios[2].GetComponent<AudioSource>().clip;
+                                incoClips = LevelManager.Instance.incoAudios[2].GetComponent<AudioSource>().clip;
                                 hitRight.collider.enabled = false;
                                 if (letter == item)
                                 {
                                     score += 5;
-                                    LevelManager.Instance.letterAudios[2].PlayOneShot(itemClips, 1.0f);
+                                    LevelManager.Instance.itemAudios[2].PlayOneShot(itemClips, 1.0f);
                                     LevelManager.Instance.scoreText.text = score.ToString();
                                     LevelManager.Instance.tick_r3.SetActive(true);
                                 }
                                 else
                                 {
                                     LevelManager.Instance.cross_r3.SetActive(true);
+                                    LevelManager.Instance.incoAudios[2].PlayOneShot(incoClips, 1.0f);
                                 }
                             }
                         }

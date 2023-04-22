@@ -44,14 +44,15 @@ public class LevelManager : MonoBehaviour
         public Sprite item_1;
         public AudioClip letter_1_sounds;
         public AudioClip item_1_correct;
-       //public AudioClip inco_1;
+        public AudioClip inco_1;
 
-        public Pool_1(Sprite l_1, Sprite a_1, AudioClip ls_1, AudioClip ic_1)
+        public Pool_1(Sprite l_1, Sprite a_1, AudioClip ls_1, AudioClip ic_1, AudioClip i1)
         {
             letter_1 = l_1;
             item_1 = a_1;
             letter_1_sounds = ls_1;
             item_1_correct = ic_1;
+            inco_1 = i1;
         }
     }
 
@@ -62,13 +63,15 @@ public class LevelManager : MonoBehaviour
         public Sprite item_2;
         public AudioClip letter_2_sounds;
         public AudioClip item_2_correct;
+        public AudioClip inco_2;
 
-        public Pool_2(Sprite l_2, Sprite a_2, AudioClip ls_2, AudioClip ic_2)
+        public Pool_2(Sprite l_2, Sprite a_2, AudioClip ls_2, AudioClip ic_2, AudioClip i2)
         {
             letter_2 = l_2;
             item_2 = a_2;
             letter_2_sounds = ls_2;
             item_2_correct = ic_2;
+            inco_2 = i2;
         }
     }
 
@@ -79,13 +82,15 @@ public class LevelManager : MonoBehaviour
         public Sprite item_3;
         public AudioClip letter_3_sounds;
         public AudioClip item_3_correct;
+        public AudioClip inco_3;
 
-        public Pool_3(Sprite l_3, Sprite a_3, AudioClip ls_3, AudioClip ic_3)
+        public Pool_3(Sprite l_3, Sprite a_3, AudioClip ls_3, AudioClip ic_3, AudioClip i3)
         {
             letter_3 = l_3;
             item_3 = a_3;
             letter_3_sounds = ls_3;
             item_3_correct = ic_3;
+            inco_3 = i3;
         }
     }
     //holders
@@ -94,6 +99,7 @@ public class LevelManager : MonoBehaviour
 
     public AudioSource[] letterAudios;
     public AudioSource[] itemAudios;
+    public AudioSource[] incoAudios;
 
     //positions
     public GameObject[] leftSpot;
@@ -176,15 +182,15 @@ public class LevelManager : MonoBehaviour
     {
         //pool_1_generation
         pool_1_Index = UnityEngine.Random.Range(0, pool_1.Length);
-        pool_1[pool_1_Index] = new Pool_1(pool_1[pool_1_Index].letter_1, pool_1[pool_1_Index].item_1, pool_1[pool_1_Index].letter_1_sounds, pool_1[pool_1_Index].item_1_correct);
+        pool_1[pool_1_Index] = new Pool_1(pool_1[pool_1_Index].letter_1, pool_1[pool_1_Index].item_1, pool_1[pool_1_Index].letter_1_sounds, pool_1[pool_1_Index].item_1_correct, pool_1[pool_1_Index].inco_1);
 
         //pool_2_generation
         pool_2_Index = UnityEngine.Random.Range(0, pool_2.Length);
-        pool_2[pool_2_Index] = new Pool_2(pool_2[pool_2_Index].letter_2, pool_2[pool_2_Index].item_2, pool_2[pool_2_Index].letter_2_sounds, pool_2[pool_2_Index].item_2_correct);
+        pool_2[pool_2_Index] = new Pool_2(pool_2[pool_2_Index].letter_2, pool_2[pool_2_Index].item_2, pool_2[pool_2_Index].letter_2_sounds, pool_2[pool_2_Index].item_2_correct, pool_2[pool_2_Index].inco_2);
 
         //pool_3_generation
         pool_3_Index = UnityEngine.Random.Range(0, pool_3.Length);
-        pool_3[pool_3_Index] = new Pool_3(pool_3[pool_3_Index].letter_3, pool_3[pool_3_Index].item_3, pool_3[pool_3_Index].letter_3_sounds, pool_3[pool_3_Index].item_3_correct);
+        pool_3[pool_3_Index] = new Pool_3(pool_3[pool_3_Index].letter_3, pool_3[pool_3_Index].item_3, pool_3[pool_3_Index].letter_3_sounds, pool_3[pool_3_Index].item_3_correct, pool_3[pool_3_Index].inco_3);
 
         position = UnityEngine.Random.Range(0,letterHolders.Length);
         position2 = UnityEngine.Random.Range(0, itemHolders.Length);
@@ -201,6 +207,10 @@ public class LevelManager : MonoBehaviour
                 letterAudios[0].clip = pool_1[pool_1_Index].letter_1_sounds;
                 letterAudios[1].clip = pool_3[pool_3_Index].letter_3_sounds;
                 letterAudios[2].clip = pool_2[pool_2_Index].letter_2_sounds;
+                //incorrect
+                incoAudios[0].clip = pool_1[pool_1_Index].inco_1;
+                incoAudios[1].clip = pool_3[pool_3_Index].inco_3;
+                incoAudios[2].clip = pool_2[pool_2_Index].inco_2;
                 break;
             case 1:
                 //letters
@@ -211,6 +221,10 @@ public class LevelManager : MonoBehaviour
                 letterAudios[0].clip = pool_2[pool_2_Index].letter_2_sounds;
                 letterAudios[1].clip = pool_1[pool_1_Index].letter_1_sounds;
                 letterAudios[2].clip = pool_3[pool_3_Index].letter_3_sounds;
+                //incorrect
+                incoAudios[0].clip = pool_2[pool_2_Index].inco_2;
+                incoAudios[1].clip = pool_1[pool_1_Index].inco_1;
+                incoAudios[2].clip = pool_3[pool_3_Index].inco_3;
                 break;
             case 2:
                 //letters
@@ -222,6 +236,10 @@ public class LevelManager : MonoBehaviour
                 letterAudios[0].clip = pool_3[pool_3_Index].letter_3_sounds;
                 letterAudios[1].clip = pool_2[pool_2_Index].letter_2_sounds;
                 letterAudios[2].clip = pool_1[pool_1_Index].letter_1_sounds;
+                //incorrect
+                incoAudios[0].clip = pool_3[pool_3_Index].inco_3;
+                incoAudios[1].clip = pool_2[pool_2_Index].inco_2;
+                incoAudios[2].clip = pool_1[pool_1_Index].inco_1;
                 break;
         }
 
@@ -236,6 +254,7 @@ public class LevelManager : MonoBehaviour
                 itemAudios[0].clip = pool_3[pool_3_Index].item_3_correct;
                 itemAudios[1].clip = pool_2[pool_2_Index].item_2_correct;
                 itemAudios[2].clip = pool_1[pool_1_Index].item_1_correct;
+                
                 break;
             case 1:
                 //items
@@ -246,6 +265,7 @@ public class LevelManager : MonoBehaviour
                 itemAudios[0].clip = pool_1[pool_1_Index].item_1_correct;
                 itemAudios[1].clip = pool_3[pool_3_Index].item_3_correct;
                 itemAudios[2].clip = pool_2[pool_2_Index].item_2_correct;
+                
                 break;
             case 2:
                 //items
@@ -256,6 +276,7 @@ public class LevelManager : MonoBehaviour
                 itemAudios[0].clip = pool_1[pool_1_Index].item_1_correct;
                 itemAudios[1].clip = pool_2[pool_2_Index].item_2_correct;
                 itemAudios[2].clip = pool_3[pool_3_Index].item_3_correct;
+                
                 break;
         }
 
