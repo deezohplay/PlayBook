@@ -42,11 +42,16 @@ public class LevelManager : MonoBehaviour
     {
         public Sprite letter_1;
         public Sprite item_1;
+        public AudioClip letter_1_sounds;
+        public AudioClip item_1_correct;
+       //public AudioClip inco_1;
 
-        public Pool_1(Sprite l_1, Sprite a_1)
+        public Pool_1(Sprite l_1, Sprite a_1, AudioClip ls_1, AudioClip ic_1)
         {
             letter_1 = l_1;
             item_1 = a_1;
+            letter_1_sounds = ls_1;
+            item_1_correct = ic_1;
         }
     }
 
@@ -55,11 +60,15 @@ public class LevelManager : MonoBehaviour
     {
         public Sprite letter_2;
         public Sprite item_2;
+        public AudioClip letter_2_sounds;
+        public AudioClip item_2_correct;
 
-        public Pool_2(Sprite l_2, Sprite a_2)
+        public Pool_2(Sprite l_2, Sprite a_2, AudioClip ls_2, AudioClip ic_2)
         {
             letter_2 = l_2;
             item_2 = a_2;
+            letter_2_sounds = ls_2;
+            item_2_correct = ic_2;
         }
     }
 
@@ -68,16 +77,23 @@ public class LevelManager : MonoBehaviour
     {
         public Sprite letter_3;
         public Sprite item_3;
+        public AudioClip letter_3_sounds;
+        public AudioClip item_3_correct;
 
-        public Pool_3(Sprite l_3, Sprite a_3)
+        public Pool_3(Sprite l_3, Sprite a_3, AudioClip ls_3, AudioClip ic_3)
         {
             letter_3 = l_3;
             item_3 = a_3;
+            letter_3_sounds = ls_3;
+            item_3_correct = ic_3;
         }
     }
     //holders
     public SpriteRenderer[] letterHolders;
     public SpriteRenderer[] itemHolders;
+
+    public AudioSource[] letterAudios;
+    public AudioSource[] itemAudios;
 
     //positions
     public GameObject[] leftSpot;
@@ -137,7 +153,7 @@ public class LevelManager : MonoBehaviour
         {
             LineScript.Instance.DestroyLineInstnces();
             if (countRounds <= playRounds) {
-                GenerateChallenge();
+                StartCoroutine(RoundDelay());
             }
             else
             {
@@ -160,15 +176,15 @@ public class LevelManager : MonoBehaviour
     {
         //pool_1_generation
         pool_1_Index = UnityEngine.Random.Range(0, pool_1.Length);
-        pool_1[pool_1_Index] = new Pool_1(pool_1[pool_1_Index].letter_1, pool_1[pool_1_Index].item_1);
+        pool_1[pool_1_Index] = new Pool_1(pool_1[pool_1_Index].letter_1, pool_1[pool_1_Index].item_1, pool_1[pool_1_Index].letter_1_sounds, pool_1[pool_1_Index].item_1_correct);
 
         //pool_2_generation
         pool_2_Index = UnityEngine.Random.Range(0, pool_2.Length);
-        pool_2[pool_2_Index] = new Pool_2(pool_2[pool_2_Index].letter_2, pool_2[pool_2_Index].item_2);
+        pool_2[pool_2_Index] = new Pool_2(pool_2[pool_2_Index].letter_2, pool_2[pool_2_Index].item_2, pool_2[pool_2_Index].letter_2_sounds, pool_2[pool_2_Index].item_2_correct);
 
         //pool_3_generation
         pool_3_Index = UnityEngine.Random.Range(0, pool_3.Length);
-        pool_3[pool_3_Index] = new Pool_3(pool_3[pool_3_Index].letter_3, pool_3[pool_3_Index].item_3);
+        pool_3[pool_3_Index] = new Pool_3(pool_3[pool_3_Index].letter_3, pool_3[pool_3_Index].item_3, pool_3[pool_3_Index].letter_3_sounds, pool_3[pool_3_Index].item_3_correct);
 
         position = UnityEngine.Random.Range(0,letterHolders.Length);
         position2 = UnityEngine.Random.Range(0, itemHolders.Length);
@@ -181,18 +197,31 @@ public class LevelManager : MonoBehaviour
                 letterHolders[0].sprite = pool_1[pool_1_Index].letter_1;
                 letterHolders[1].sprite = pool_3[pool_3_Index].letter_3;
                 letterHolders[2].sprite = pool_2[pool_2_Index].letter_2;
+                //LetterAudios
+                letterAudios[0].clip = pool_1[pool_1_Index].letter_1_sounds;
+                letterAudios[1].clip = pool_3[pool_3_Index].letter_3_sounds;
+                letterAudios[2].clip = pool_2[pool_2_Index].letter_2_sounds;
                 break;
             case 1:
                 //letters
                 letterHolders[0].sprite = pool_2[pool_2_Index].letter_2;
                 letterHolders[1].sprite = pool_1[pool_1_Index].letter_1;
                 letterHolders[2].sprite = pool_3[pool_3_Index].letter_3;
+                //lettersAudio
+                letterAudios[0].clip = pool_2[pool_2_Index].letter_2_sounds;
+                letterAudios[1].clip = pool_1[pool_1_Index].letter_1_sounds;
+                letterAudios[2].clip = pool_3[pool_3_Index].letter_3_sounds;
                 break;
             case 2:
                 //letters
                 letterHolders[0].sprite = pool_3[pool_3_Index].letter_3;
                 letterHolders[1].sprite = pool_2[pool_2_Index].letter_2;
                 letterHolders[2].sprite = pool_1[pool_1_Index].letter_1;
+
+                //lettersAudio
+                letterAudios[0].clip = pool_3[pool_3_Index].letter_3_sounds;
+                letterAudios[1].clip = pool_2[pool_2_Index].letter_2_sounds;
+                letterAudios[2].clip = pool_1[pool_1_Index].letter_1_sounds;
                 break;
         }
 
@@ -203,18 +232,30 @@ public class LevelManager : MonoBehaviour
                 itemHolders[0].sprite = pool_3[pool_3_Index].item_3;
                 itemHolders[1].sprite = pool_2[pool_2_Index].item_2;
                 itemHolders[2].sprite = pool_1[pool_1_Index].item_1;
+                //itemAudios
+                itemAudios[0].clip = pool_3[pool_3_Index].item_3_correct;
+                itemAudios[1].clip = pool_2[pool_2_Index].item_2_correct;
+                itemAudios[2].clip = pool_1[pool_1_Index].item_1_correct;
                 break;
             case 1:
                 //items
                 itemHolders[0].sprite = pool_1[pool_1_Index].item_1;
                 itemHolders[1].sprite = pool_3[pool_3_Index].item_3;
                 itemHolders[2].sprite = pool_2[pool_2_Index].item_2;
+                //itemAudios
+                itemAudios[0].clip = pool_1[pool_1_Index].item_1_correct;
+                itemAudios[1].clip = pool_3[pool_3_Index].item_3_correct;
+                itemAudios[2].clip = pool_2[pool_2_Index].item_2_correct;
                 break;
             case 2:
                 //items
                 itemHolders[0].sprite = pool_1[pool_1_Index].item_1;
                 itemHolders[1].sprite = pool_2[pool_2_Index].item_2;
                 itemHolders[2].sprite = pool_3[pool_3_Index].item_3;
+                //itemAudios
+                itemAudios[0].clip = pool_1[pool_1_Index].item_1_correct;
+                itemAudios[1].clip = pool_2[pool_2_Index].item_2_correct;
+                itemAudios[2].clip = pool_3[pool_3_Index].item_3_correct;
                 break;
         }
 
@@ -244,6 +285,7 @@ public class LevelManager : MonoBehaviour
         if (timer <= 0)
         {
             FailedLevel();
+            LineScript.Instance.DestroyLineInstnces();
         }
     }
 
@@ -338,5 +380,9 @@ public class LevelManager : MonoBehaviour
         timer = 0;
         began = false;
     }
-
+    IEnumerator RoundDelay()
+    {
+        yield return new WaitForSeconds(1.0f);
+        GenerateChallenge();
+    }
 }

@@ -33,6 +33,8 @@ public class LineScript : MonoBehaviour
     private string letter;
     private string item;
     public int score;
+    private AudioClip letterClips;
+    private AudioClip itemClips;
 
     public Vector3 touchPos;
 
@@ -74,15 +76,21 @@ public class LineScript : MonoBehaviour
                 if (hitLeft.collider == LevelManager.Instance.letterColliders[0])
                 {
                     letter = LevelManager.Instance.leftSpot[0].GetComponent<SpriteRenderer>().sprite.name.ToString();
+                    letterClips = LevelManager.Instance.letterAudios[0].GetComponent<AudioSource>().clip;
+                    LevelManager.Instance.letterAudios[0].PlayOneShot(letterClips, 1.0f);
                     hitLeft.collider.enabled = false;
                 }else if (hitLeft.collider == LevelManager.Instance.letterColliders[1])
                 {
                     letter = LevelManager.Instance.leftSpot[1].GetComponent<SpriteRenderer>().sprite.name.ToString();
+                    letterClips = LevelManager.Instance.letterAudios[1].GetComponent<AudioSource>().clip;
+                    LevelManager.Instance.letterAudios[1].PlayOneShot(letterClips, 1.0f);
                     hitLeft.collider.enabled = false;
                 }
                 else if (hitLeft.collider == LevelManager.Instance.letterColliders[2])
                 {
                     letter = LevelManager.Instance.leftSpot[2].GetComponent<SpriteRenderer>().sprite.name.ToString();
+                    letterClips = LevelManager.Instance.letterAudios[2].GetComponent<AudioSource>().clip;
+                    LevelManager.Instance.letterAudios[2].PlayOneShot(letterClips, 1.0f);
                     hitLeft.collider.enabled = false;
                 }
             }
@@ -114,10 +122,12 @@ public class LineScript : MonoBehaviour
                 if (hitRight.collider == LevelManager.Instance.itemColliders[0])
                 {
                     item = LevelManager.Instance.rightSpot[0].GetComponent<SpriteRenderer>().sprite.name.ToString();
+                    itemClips = LevelManager.Instance.itemAudios[0].GetComponent<AudioSource>().clip;
                     hitRight.collider.enabled = false;
                     if (letter == item)
                     {
                         score += 5;
+                        LevelManager.Instance.letterAudios[0].PlayOneShot(itemClips, 1.0f);
                         LevelManager.Instance.scoreText.text = score.ToString();
                         LevelManager.Instance.tick_r1.SetActive(true);
                     }
@@ -129,10 +139,12 @@ public class LineScript : MonoBehaviour
                 else if (hitRight.collider == LevelManager.Instance.itemColliders[1])
                 {
                     item = LevelManager.Instance.rightSpot[1].GetComponent<SpriteRenderer>().sprite.name.ToString();
+                    itemClips = LevelManager.Instance.itemAudios[1].GetComponent<AudioSource>().clip;
                     hitRight.collider.enabled = false;
                     if (letter == item)
                     {
                         score += 5;
+                        LevelManager.Instance.letterAudios[1].PlayOneShot(itemClips, 1.0f);
                         LevelManager.Instance.scoreText.text = score.ToString();
                         LevelManager.Instance.tick_r2.SetActive(true);
                     }
@@ -144,10 +156,12 @@ public class LineScript : MonoBehaviour
                 else if (hitRight.collider == LevelManager.Instance.itemColliders[2])
                 {
                     item = LevelManager.Instance.rightSpot[2].GetComponent<SpriteRenderer>().sprite.name.ToString();
+                    itemClips = LevelManager.Instance.itemAudios[2].GetComponent<AudioSource>().clip;
                     hitRight.collider.enabled = false;
                     if (letter == item)
                     {
                         score += 5;
+                        LevelManager.Instance.letterAudios[2].PlayOneShot(itemClips, 1.0f);
                         LevelManager.Instance.scoreText.text = score.ToString();
                         LevelManager.Instance.tick_r3.SetActive(true);
                     }
@@ -157,7 +171,6 @@ public class LineScript : MonoBehaviour
                     }
                 }
             }
-
 
             mousePos = Input.mousePosition;
             mousePos.z = 1;
@@ -216,16 +229,22 @@ public class LineScript : MonoBehaviour
                             if (hitLeft.collider == LevelManager.Instance.letterColliders[0])
                             {
                                 letter = LevelManager.Instance.leftSpot[0].GetComponent<SpriteRenderer>().sprite.name.ToString();
+                                letterClips = LevelManager.Instance.letterAudios[0].GetComponent<AudioSource>().clip;
+                                LevelManager.Instance.letterAudios[0].PlayOneShot(letterClips, 1.0f);
                                 hitLeft.collider.enabled = false;
                             }
                             else if (hitLeft.collider == LevelManager.Instance.letterColliders[1])
                             {
                                 letter = LevelManager.Instance.leftSpot[1].GetComponent<SpriteRenderer>().sprite.name.ToString();
+                                letterClips = LevelManager.Instance.letterAudios[1].GetComponent<AudioSource>().clip;
+                                LevelManager.Instance.letterAudios[1].PlayOneShot(letterClips, 1.0f);
                                 hitLeft.collider.enabled = false;
                             }
                             else if (hitLeft.collider == LevelManager.Instance.letterColliders[2])
                             {
                                 letter = LevelManager.Instance.leftSpot[2].GetComponent<SpriteRenderer>().sprite.name.ToString();
+                                letterClips = LevelManager.Instance.letterAudios[2].GetComponent<AudioSource>().clip;
+                                LevelManager.Instance.letterAudios[2].PlayOneShot(letterClips, 1.0f);
                                 hitLeft.collider.enabled = false;
                             }
                         }
@@ -269,10 +288,12 @@ public class LineScript : MonoBehaviour
                             if (hitRight.collider == LevelManager.Instance.itemColliders[0])
                             {
                                 item = LevelManager.Instance.rightSpot[0].GetComponent<SpriteRenderer>().sprite.name.ToString();
+                                itemClips = LevelManager.Instance.itemAudios[0].GetComponent<AudioSource>().clip;
                                 hitRight.collider.enabled = false;
                                 if (letter == item)
                                 {
                                     score += 5;
+                                    LevelManager.Instance.letterAudios[0].PlayOneShot(itemClips, 1.0f);
                                     LevelManager.Instance.scoreText.text = score.ToString();
                                     LevelManager.Instance.tick_r1.SetActive(true);
                                 }
@@ -284,10 +305,12 @@ public class LineScript : MonoBehaviour
                             else if (hitRight.collider == LevelManager.Instance.itemColliders[1])
                             {
                                 item = LevelManager.Instance.rightSpot[1].GetComponent<SpriteRenderer>().sprite.name.ToString();
+                                itemClips = LevelManager.Instance.itemAudios[1].GetComponent<AudioSource>().clip;
                                 hitRight.collider.enabled = false;
                                 if (letter == item)
                                 {
                                     score += 5;
+                                    LevelManager.Instance.letterAudios[1].PlayOneShot(itemClips, 1.0f);
                                     LevelManager.Instance.scoreText.text = score.ToString();
                                     LevelManager.Instance.tick_r2.SetActive(true);
                                 }
@@ -299,10 +322,12 @@ public class LineScript : MonoBehaviour
                             else if (hitRight.collider == LevelManager.Instance.itemColliders[2])
                             {
                                 item = LevelManager.Instance.rightSpot[2].GetComponent<SpriteRenderer>().sprite.name.ToString();
+                                itemClips = LevelManager.Instance.itemAudios[2].GetComponent<AudioSource>().clip;
                                 hitRight.collider.enabled = false;
                                 if (letter == item)
                                 {
                                     score += 5;
+                                    LevelManager.Instance.letterAudios[2].PlayOneShot(itemClips, 1.0f);
                                     LevelManager.Instance.scoreText.text = score.ToString();
                                     LevelManager.Instance.tick_r3.SetActive(true);
                                 }
@@ -386,7 +411,6 @@ public class LineScript : MonoBehaviour
         dotCount = 0;
         currLines = 0;
     }
-
     public void EnableCollider()
     {
         //left
@@ -399,4 +423,5 @@ public class LineScript : MonoBehaviour
         LevelManager.Instance.itemColliders[1].enabled = true;
         LevelManager.Instance.itemColliders[2].enabled = true;
     }
+
 }
