@@ -78,12 +78,14 @@ public class LineScript : MonoBehaviour
                 {
                     letter = LevelManager.Instance.leftSpot[0].GetComponent<SpriteRenderer>().sprite.name.ToString();
                     letterClips = LevelManager.Instance.letterAudios[0].GetComponent<AudioSource>().clip;
+                    incoClips = LevelManager.Instance.incoAudios[0].GetComponent<AudioSource>().clip;
                     LevelManager.Instance.letterAudios[0].PlayOneShot(letterClips, 1.0f);
                     hitLeft.collider.enabled = false;
                 }else if (hitLeft.collider == LevelManager.Instance.letterColliders[1])
                 {
                     letter = LevelManager.Instance.leftSpot[1].GetComponent<SpriteRenderer>().sprite.name.ToString();
                     letterClips = LevelManager.Instance.letterAudios[1].GetComponent<AudioSource>().clip;
+                    incoClips = LevelManager.Instance.incoAudios[1].GetComponent<AudioSource>().clip;
                     LevelManager.Instance.letterAudios[1].PlayOneShot(letterClips, 1.0f);
                     hitLeft.collider.enabled = false;
                 }
@@ -91,6 +93,7 @@ public class LineScript : MonoBehaviour
                 {
                     letter = LevelManager.Instance.leftSpot[2].GetComponent<SpriteRenderer>().sprite.name.ToString();
                     letterClips = LevelManager.Instance.letterAudios[2].GetComponent<AudioSource>().clip;
+                    incoClips = LevelManager.Instance.incoAudios[2].GetComponent<AudioSource>().clip;
                     LevelManager.Instance.letterAudios[2].PlayOneShot(letterClips, 1.0f);
                     hitLeft.collider.enabled = false;
                 }
@@ -124,7 +127,7 @@ public class LineScript : MonoBehaviour
                 {
                     item = LevelManager.Instance.rightSpot[0].GetComponent<SpriteRenderer>().sprite.name.ToString();
                     itemClips = LevelManager.Instance.itemAudios[0].GetComponent<AudioSource>().clip;
-                    incoClips = LevelManager.Instance.incoAudios[0].GetComponent<AudioSource>().clip;
+                    
                     hitRight.collider.enabled = false;
                     if (letter == item)
                     {
@@ -143,7 +146,7 @@ public class LineScript : MonoBehaviour
                 {
                     item = LevelManager.Instance.rightSpot[1].GetComponent<SpriteRenderer>().sprite.name.ToString();
                     itemClips = LevelManager.Instance.itemAudios[1].GetComponent<AudioSource>().clip;
-                    incoClips = LevelManager.Instance.incoAudios[1].GetComponent<AudioSource>().clip;
+                 
                     hitRight.collider.enabled = false;
                     if (letter == item)
                     {
@@ -162,7 +165,7 @@ public class LineScript : MonoBehaviour
                 {
                     item = LevelManager.Instance.rightSpot[2].GetComponent<SpriteRenderer>().sprite.name.ToString();
                     itemClips = LevelManager.Instance.itemAudios[2].GetComponent<AudioSource>().clip;
-                    incoClips = LevelManager.Instance.incoAudios[2].GetComponent<AudioSource>().clip;
+                   
                     hitRight.collider.enabled = false;
                     if (letter == item)
                     {
@@ -237,6 +240,7 @@ public class LineScript : MonoBehaviour
                             {
                                 letter = LevelManager.Instance.leftSpot[0].GetComponent<SpriteRenderer>().sprite.name.ToString();
                                 letterClips = LevelManager.Instance.letterAudios[0].GetComponent<AudioSource>().clip;
+                                incoClips = LevelManager.Instance.incoAudios[0].GetComponent<AudioSource>().clip;
                                 LevelManager.Instance.letterAudios[0].PlayOneShot(letterClips, 1.0f);
                                 hitLeft.collider.enabled = false;
                             }
@@ -244,6 +248,7 @@ public class LineScript : MonoBehaviour
                             {
                                 letter = LevelManager.Instance.leftSpot[1].GetComponent<SpriteRenderer>().sprite.name.ToString();
                                 letterClips = LevelManager.Instance.letterAudios[1].GetComponent<AudioSource>().clip;
+                                incoClips = LevelManager.Instance.incoAudios[1].GetComponent<AudioSource>().clip;
                                 LevelManager.Instance.letterAudios[1].PlayOneShot(letterClips, 1.0f);
                                 hitLeft.collider.enabled = false;
                             }
@@ -251,6 +256,7 @@ public class LineScript : MonoBehaviour
                             {
                                 letter = LevelManager.Instance.leftSpot[2].GetComponent<SpriteRenderer>().sprite.name.ToString();
                                 letterClips = LevelManager.Instance.letterAudios[2].GetComponent<AudioSource>().clip;
+                                incoClips = LevelManager.Instance.incoAudios[2].GetComponent<AudioSource>().clip;
                                 LevelManager.Instance.letterAudios[2].PlayOneShot(letterClips, 1.0f);
                                 hitLeft.collider.enabled = false;
                             }
@@ -296,7 +302,7 @@ public class LineScript : MonoBehaviour
                             {
                                 item = LevelManager.Instance.rightSpot[0].GetComponent<SpriteRenderer>().sprite.name.ToString();
                                 itemClips = LevelManager.Instance.itemAudios[0].GetComponent<AudioSource>().clip;
-                                incoClips = LevelManager.Instance.incoAudios[0].GetComponent<AudioSource>().clip;
+                                
                                 hitRight.collider.enabled = false;
                                 if (letter == item)
                                 {
@@ -315,7 +321,7 @@ public class LineScript : MonoBehaviour
                             {
                                 item = LevelManager.Instance.rightSpot[1].GetComponent<SpriteRenderer>().sprite.name.ToString();
                                 itemClips = LevelManager.Instance.itemAudios[1].GetComponent<AudioSource>().clip;
-                                incoClips = LevelManager.Instance.incoAudios[1].GetComponent<AudioSource>().clip;
+                              
                                 hitRight.collider.enabled = false;
                                 if (letter == item)
                                 {
@@ -334,7 +340,7 @@ public class LineScript : MonoBehaviour
                             {
                                 item = LevelManager.Instance.rightSpot[2].GetComponent<SpriteRenderer>().sprite.name.ToString();
                                 itemClips = LevelManager.Instance.itemAudios[2].GetComponent<AudioSource>().clip;
-                                incoClips = LevelManager.Instance.incoAudios[2].GetComponent<AudioSource>().clip;
+                                
                                 hitRight.collider.enabled = false;
                                 if (letter == item)
                                 {
