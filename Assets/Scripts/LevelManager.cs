@@ -29,13 +29,18 @@ public class LevelManager : MonoBehaviour
     private float timerSpeed = 0.6f;
 
     //panels
-    public GameObject failed;
     public GameObject prevBtn;
     public GameObject pausedBtn;
     public GameObject coin;
     public GameObject alarm;
-    public GameObject passed;
 
+    //Animator
+    public Animator coinAnim;
+    public Animator passedAnim;
+    public Animator failedAnim;
+
+    //particles
+    public ParticleSystem gift;
     //letter class
     [System.Serializable]
     public class Pool_1
@@ -155,19 +160,21 @@ public class LevelManager : MonoBehaviour
             StartCoroutine(LittlelDelayOnGamePlay());
         }
 
-        if (LineScript.Instance.dotCount == 6 && timer != 0)
+        if (LineScript.Instance.dotCount == 6 && timer != 0) // Checks if dots are 6 which equates to 2 dots per line meaning 3 lines created
         {
+            // destroys lines created during the previous attempt
             LineScript.Instance.DestroyLineInstnces();
             if (countRounds <= playRounds) {
-                StartCoroutine(RoundDelay());
+                StartCoroutine(GenerateDelay()); // Not performing its work now ***** something wrong
             }
             else
             {
-                timeSpent = timer;
+               // timeSpent = timer;
 
                 if (LineScript.Instance.score >= minScore)
                 {
                     PassedLevel();
+                    StartCoroutine(GiftDelay());
                 }
                 else
                 {
@@ -180,6 +187,7 @@ public class LevelManager : MonoBehaviour
     //Generate Indices
     public void GenerateChallenge()
     {
+        
         //pool_1_generation
         pool_1_Index = UnityEngine.Random.Range(0, pool_1.Length);
         pool_1[pool_1_Index] = new Pool_1(pool_1[pool_1_Index].letter_1, pool_1[pool_1_Index].item_1, pool_1[pool_1_Index].letter_1_sounds, pool_1[pool_1_Index].item_1_correct, pool_1[pool_1_Index].inco_1);
@@ -303,77 +311,48 @@ public class LevelManager : MonoBehaviour
         //Converts the time into a whole number
         timerText.SetText("" + Mathf.Round(timer));
         //Checks if time is less than 0 and triggers game over method
-        if (timer <= 0)
+        if (timer <= 0 && LineScript.Instance.score<minScore)
         {
             FailedLevel();
-            LineScript.Instance.DestroyLineInstnces();
+        }
+        else
+        {
+            
         }
     }
-
     //retry level
-    public void Replay()
+    public void ReplayPassed()
     {
-        //disabling gameobjects
-        failed.SetActive(false);
-        leftSpot[0].SetActive(true);
-        leftSpot[1].SetActive(true);
-        leftSpot[2].SetActive(true);
-        rightSpot[0].SetActive(true);
-        rightSpot[1].SetActive(true);
-        rightSpot[2].SetActive(true);
-        pausedBtn.SetActive(true);
-        prevBtn.SetActive(true);
-        coin.SetActive(true);
-        alarm.SetActive(true);
-        SceneManager.LoadScene("Identify");
+        passedAnim.SetTrigger("out");
+        StartCoroutine(PassedReplayDelay());
+    }
+    public void ReplayFailed()
+    {
+        failedAnim.SetTrigger("out");
+        StartCoroutine(FailedReplayDelay());
     }
 
     //ads bonus play
     public void AdBonus()
     {
-        failed.SetActive(false);
-        leftSpot[0].SetActive(true);
-        leftSpot[1].SetActive(true);
-        leftSpot[2].SetActive(true);
-        rightSpot[0].SetActive(true);
-        rightSpot[1].SetActive(true);
-        rightSpot[2].SetActive(true);
-        pausedBtn.SetActive(true);
-        prevBtn.SetActive(true);
-        coin.SetActive(true);
-        alarm.SetActive(true);
-        timer = 30.0f;
-        GenerateChallenge();
-        began = true;
+        failedAnim.SetTrigger("out");
+        StartCoroutine(DelayAddBonus());
+        StartCoroutine(GenerateDelay());
     }
 
-    //runs if the play is over
+    //This method is invoked when the player attains a certain amount of points enough to progress to another level
     public void PassedLevel()
     {
         TimeCalc();
-        //disabling gameobjects
-        passed.SetActive(true);
-        leftSpot[0].SetActive(false);
-        leftSpot[1].SetActive(false);
-        leftSpot[2].SetActive(false);
-        rightSpot[0].SetActive(false);
-        rightSpot[1].SetActive(false);
-        rightSpot[2].SetActive(false);
-        pausedBtn.SetActive(false);
-        prevBtn.SetActive(false);
-        coin.SetActive(false);
-        alarm.SetActive(false);
-        passedScoreText.text = LineScript.Instance.score.ToString();
         LineScript.Instance.DestroyLineInstnces();
-        began = false;
+        StartCoroutine(PassedDelay());
     }
 
-    //time calculations
+    //time calculations ** not used yet, this is the gift
     void TimeCalc()
     {
         remainingTime = 60.0f - timeSpent;
         remainingTime = Mathf.Round(remainingTime);
-        Debug.Log(remainingTime);
     }
     //win logic
     public void Next()
@@ -381,11 +360,56 @@ public class LevelManager : MonoBehaviour
        
     }
 
-    //failed method
+    //This method is invoked when the player failed to score a certain amount of point to progress to another level.
     public void FailedLevel()
     {
-        //disabling gameobjects
-        failed.SetActive(true);
+        LineScript.Instance.DestroyLineInstnces();
+        StartCoroutine(DelayFailed());
+    }
+    //This creates delay at every generation of new items on the screen
+    IEnumerator GenerateDelay()
+    {
+        yield return new WaitForSeconds(1.0f);
+        GenerateChallenge();
+    }
+
+    //Creates a one second delay after replay button hit from passed panel
+    IEnumerator PassedReplayDelay()
+    {
+        yield return new WaitForSeconds(1.0f);
+        SceneManager.LoadScene("Identify");
+    }
+
+    //Creates a one second delay after replay button hit from failed panel
+    IEnumerator FailedReplayDelay()
+    {
+        yield return new WaitForSeconds(1.0f);
+        SceneManager.LoadScene("Identify");
+    }
+    IEnumerator DelayAddBonus()
+    {
+        yield return new WaitForSeconds(1.0f);
+        //Enables objects since time bonus is added to the previously elapsed time
+        leftSpot[0].SetActive(true);
+        leftSpot[1].SetActive(true);
+        leftSpot[2].SetActive(true);
+        rightSpot[0].SetActive(true);
+        rightSpot[1].SetActive(true);
+        rightSpot[2].SetActive(true);
+        pausedBtn.SetActive(true);
+        prevBtn.SetActive(true);
+        coin.SetActive(true);
+        scoreText.gameObject.SetActive(true);
+        alarm.SetActive(true);
+        timer = 30.0f;
+        began = true;
+
+    }
+    //creates delay on failed disabling to match the line destructions
+    IEnumerator DelayFailed()
+    {
+        yield return new WaitForSeconds(1.0f);
+        //disabling all gameobjects from the device screen
         leftSpot[0].SetActive(false);
         leftSpot[1].SetActive(false);
         leftSpot[2].SetActive(false);
@@ -395,15 +419,36 @@ public class LevelManager : MonoBehaviour
         pausedBtn.SetActive(false);
         prevBtn.SetActive(false);
         coin.SetActive(false);
+        scoreText.gameObject.SetActive(false);
         alarm.SetActive(false);
-        LineScript.Instance.DestroyLineInstnces();
         faileScoreText.text = LineScript.Instance.score.ToString();
         timer = 0;
         began = false;
+        failedAnim.SetTrigger("in");
     }
-    IEnumerator RoundDelay()
+    //creates delay on passed disabling
+    IEnumerator PassedDelay()
     {
         yield return new WaitForSeconds(1.0f);
-        GenerateChallenge();
+        //disabling all game objects from the screen
+        leftSpot[0].SetActive(false);
+        leftSpot[1].SetActive(false);
+        leftSpot[2].SetActive(false);
+        rightSpot[0].SetActive(false);
+        rightSpot[1].SetActive(false);
+        rightSpot[2].SetActive(false);
+        pausedBtn.SetActive(false);
+        prevBtn.SetActive(false);
+        coin.SetActive(false);
+        scoreText.gameObject.SetActive(false);
+        alarm.SetActive(false);
+        passedScoreText.text = LineScript.Instance.score.ToString();
+        began = false;
+        passedAnim.SetTrigger("in");
+    }
+    IEnumerator GiftDelay()
+    {
+        yield return new WaitForSeconds(2.0f);
+        gift.Play();
     }
 }

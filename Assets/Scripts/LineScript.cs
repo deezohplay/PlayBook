@@ -135,6 +135,8 @@ public class LineScript : MonoBehaviour
                         LevelManager.Instance.itemAudios[0].PlayOneShot(itemClips, 1.0f);
                         LevelManager.Instance.scoreText.text = score.ToString();
                         LevelManager.Instance.tick_r1.SetActive(true);
+                        LevelManager.Instance.coinAnim.SetTrigger("coin_dance");
+                        
                     }
                     else
                     {
@@ -154,6 +156,7 @@ public class LineScript : MonoBehaviour
                         LevelManager.Instance.itemAudios[1].PlayOneShot(itemClips, 1.0f);
                         LevelManager.Instance.scoreText.text = score.ToString();
                         LevelManager.Instance.tick_r2.SetActive(true);
+                        LevelManager.Instance.coinAnim.SetTrigger("coin_dance");
                     }
                     else
                     {
@@ -173,6 +176,7 @@ public class LineScript : MonoBehaviour
                         LevelManager.Instance.itemAudios[2].PlayOneShot(itemClips, 1.0f);
                         LevelManager.Instance.scoreText.text = score.ToString();
                         LevelManager.Instance.tick_r3.SetActive(true);
+                        LevelManager.Instance.coinAnim.SetTrigger("coin_dance");
                     }
                     else
                     {
@@ -310,6 +314,7 @@ public class LineScript : MonoBehaviour
                                     LevelManager.Instance.itemAudios[0].PlayOneShot(itemClips, 1.0f);
                                     LevelManager.Instance.scoreText.text = score.ToString();
                                     LevelManager.Instance.tick_r1.SetActive(true);
+                                    LevelManager.Instance.coinAnim.SetTrigger("coin_dance");
                                 }
                                 else
                                 {
@@ -329,6 +334,7 @@ public class LineScript : MonoBehaviour
                                     LevelManager.Instance.itemAudios[1].PlayOneShot(itemClips, 1.0f);
                                     LevelManager.Instance.scoreText.text = score.ToString();
                                     LevelManager.Instance.tick_r2.SetActive(true);
+                                    LevelManager.Instance.coinAnim.SetTrigger("coin_dance");
                                 }
                                 else
                                 {
@@ -348,6 +354,7 @@ public class LineScript : MonoBehaviour
                                     LevelManager.Instance.itemAudios[2].PlayOneShot(itemClips, 1.0f);
                                     LevelManager.Instance.scoreText.text = score.ToString();
                                     LevelManager.Instance.tick_r3.SetActive(true);
+                                    LevelManager.Instance.coinAnim.SetTrigger("coin_dance");
                                 }
                                 else
                                 {
@@ -401,28 +408,7 @@ public class LineScript : MonoBehaviour
 
     public void DestroyLineInstnces()
     {
-        //Destroying lines
-        Destroy(line0);
-        Destroy(line1);
-        Destroy(line2);
-
-        //disable ticks
-        LevelManager.Instance.tick_r1.SetActive(false);
-        LevelManager.Instance.tick_r2.SetActive(false);
-        LevelManager.Instance.tick_r3.SetActive(false);
-
-        //disable cross
-        LevelManager.Instance.cross_r1.SetActive(false);
-        LevelManager.Instance.cross_r2.SetActive(false);
-        LevelManager.Instance.cross_r3.SetActive(false);
-
-        //destroy dots
-        Destroy(dot11);
-        Destroy(dot12);
-        Destroy(dot21);
-        Destroy(dot22);
-        Destroy(dot31);
-        Destroy(dot33);
+        StartCoroutine(DestroyDelay());
 
         //Enabling colliders
         EnableCollider();
@@ -441,6 +427,32 @@ public class LineScript : MonoBehaviour
         LevelManager.Instance.itemColliders[0].enabled = true;
         LevelManager.Instance.itemColliders[1].enabled = true;
         LevelManager.Instance.itemColliders[2].enabled = true;
+    }
+
+    IEnumerator DestroyDelay()
+    {
+        yield return new WaitForSeconds(1.0f);
+        //destroy dots
+        Destroy(dot11);
+        Destroy(dot12);
+        Destroy(dot21);
+        Destroy(dot22);
+        Destroy(dot31);
+        Destroy(dot33);
+        //Destroying lines
+        Destroy(line0);
+        Destroy(line1);
+        Destroy(line2);
+
+        //disable ticks
+        LevelManager.Instance.tick_r1.SetActive(false);
+        LevelManager.Instance.tick_r2.SetActive(false);
+        LevelManager.Instance.tick_r3.SetActive(false);
+
+        //disable cross
+        LevelManager.Instance.cross_r1.SetActive(false);
+        LevelManager.Instance.cross_r2.SetActive(false);
+        LevelManager.Instance.cross_r3.SetActive(false);
     }
 
 }
