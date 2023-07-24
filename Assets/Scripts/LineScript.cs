@@ -131,7 +131,7 @@ public class LineScript : MonoBehaviour
                     hitRight.collider.enabled = false;
                     if (letter == item)
                     {
-                        score += 5;
+                        score += 2;
                         LevelManager.Instance.itemAudios[0].PlayOneShot(itemClips, 1.0f);
                         LevelManager.Instance.scoreText.text = score.ToString();
                         LevelManager.Instance.tick_r1.SetActive(true);
@@ -152,7 +152,7 @@ public class LineScript : MonoBehaviour
                     hitRight.collider.enabled = false;
                     if (letter == item)
                     {
-                        score += 5;
+                        score += 2;
                         LevelManager.Instance.itemAudios[1].PlayOneShot(itemClips, 1.0f);
                         LevelManager.Instance.scoreText.text = score.ToString();
                         LevelManager.Instance.tick_r2.SetActive(true);
@@ -172,7 +172,7 @@ public class LineScript : MonoBehaviour
                     hitRight.collider.enabled = false;
                     if (letter == item)
                     {
-                        score += 5;
+                        score += 2;
                         LevelManager.Instance.itemAudios[2].PlayOneShot(itemClips, 1.0f);
                         LevelManager.Instance.scoreText.text = score.ToString();
                         LevelManager.Instance.tick_r3.SetActive(true);
@@ -310,7 +310,7 @@ public class LineScript : MonoBehaviour
                                 hitRight.collider.enabled = false;
                                 if (letter == item)
                                 {
-                                    score += 5;
+                                    score += 2;
                                     LevelManager.Instance.itemAudios[0].PlayOneShot(itemClips, 1.0f);
                                     LevelManager.Instance.scoreText.text = score.ToString();
                                     LevelManager.Instance.tick_r1.SetActive(true);
@@ -330,7 +330,7 @@ public class LineScript : MonoBehaviour
                                 hitRight.collider.enabled = false;
                                 if (letter == item)
                                 {
-                                    score += 5;
+                                    score += 2;
                                     LevelManager.Instance.itemAudios[1].PlayOneShot(itemClips, 1.0f);
                                     LevelManager.Instance.scoreText.text = score.ToString();
                                     LevelManager.Instance.tick_r2.SetActive(true);
@@ -350,7 +350,7 @@ public class LineScript : MonoBehaviour
                                 hitRight.collider.enabled = false;
                                 if (letter == item)
                                 {
-                                    score += 5;
+                                    score += 2;
                                     LevelManager.Instance.itemAudios[2].PlayOneShot(itemClips, 1.0f);
                                     LevelManager.Instance.scoreText.text = score.ToString();
                                     LevelManager.Instance.tick_r3.SetActive(true);
