@@ -672,7 +672,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2032759243}
         m_TargetAssemblyTypeName: AdsManager, Assembly-CSharp
-        m_MethodName: PlayAd
+        m_MethodName: LoadInterstitialAd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -947,7 +947,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 170.58757, y: -389.72018}
+  m_AnchoredPosition: {x: 177, y: -358.2}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1792200667
@@ -1224,6 +1224,8 @@ MonoBehaviour:
   testMode: 1
   androidAd: Interstitial_Android
   iOsAd: Interstitial_iOS
+  androidAdUnitId: Rewarded_Android
+  iOSAdUnitId: Rewarded_iOS
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

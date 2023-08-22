@@ -22,32 +22,22 @@ public class LevelManager : MonoBehaviour
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI scoreText;
 
-    public TextMeshProUGUI faileScoreText;
-
     public bool began = false;
     private float timerSpeed = 0.6f;
 
     //panels
-    public GameObject prevBtn;
-    public GameObject pausedBtn;
     public GameObject coin;
     public GameObject alarm;
-    public GameObject evaluatePlayer;
 
     //Animator
     public Animator coinAnim;
     public Animator bonusAnim;
-    public Animator completeAnim;
-    public Animator gameOverAnim;
-
-    public Animator objImageAnim;
-    public Animator testImageAnim;
-    public Animator leftBtnAnim;
-    public Animator middleBtnAnim;
-    public Animator rightBtnAnim;
 
     //particles
     public ParticleSystem gift;
+
+    //rewarded ad
+    public Button showRewardedAd;
     //letter class
     [System.Serializable]
     public class Pool_1
@@ -297,61 +287,33 @@ public class LevelManager : MonoBehaviour
         timerText.SetText("" + Mathf.Round(timer));
         //Checks if time is less than 0.2 and triggers game over method
 
-        if (timer <= 0.5)
+        if (LineScript.Instance.dotCount == 6) // Checks if dots are 6 which equates to 2 dots per line meaning 3 lines created
         {
-            GameOver();
-        }
-        else
-        {
-            if (LineScript.Instance.dotCount == 6) // Checks if dots are 6 which equates to 2 dots per line meaning 3 lines created
+            // destroys lines created during the previous attempt
+            LineScript.Instance.DestroyLineInstnces();
+            if (countRounds != playRounds)
             {
-                // destroys lines created during the previous attempt
-                LineScript.Instance.DestroyLineInstnces();
-                if (countRounds != playRounds)
-                {
-                    StartCoroutine(GenerateDelay()); // Not performing its work now ***** something wrong
-                }
-                else
-                {
-                    timeSpent = timer;
+                StartCoroutine(GenerateDelay()); // Not performing its work now ***** something wrong
+            }
+            else
+            {
+                timeSpent = timer;
 
-                    if (LineScript.Instance.score >= minScore)
-                    {
-                        Bonus();
-                        StartCoroutine(GiftDelay());
-                        /*
-                       StartCoroutine(EvaluateDelay());//THIS WORKS FINE JUST ENABLE IT
-                        /*
-                        if (correct letter selected)
-                        {
-                            Bonus();
-                            StartCoroutine(GiftDelay());
-                        }else{
-                            //Game Over
-                        }
-                        */
-                    }
-                    else
-                    {
-                        GameOver();
-                    }
+                if (LineScript.Instance.score >= minScore)
+                {
+                    Bonus();
+                    StartCoroutine(GiftDelay());
                 }
             }
         }
     }
 
-    //This method is invoked when the player attains a certain amount of points enough to progress to another level
-    public void Complete()
-    {
-        // TimeCalc();
-        LineScript.Instance.DestroyLineInstnces();
-        StartCoroutine(CompleteDelay());
-    }
     public void Bonus()
     {
         // TimeCalc();
         LineScript.Instance.DestroyLineInstnces();
         StartCoroutine(BonusDelay());
+        showRewardedAd.onClick.AddListener(AdsManager.Instance.LoadRewardedAd);
     }
 
     //time calculations ** not used yet, this is the gift
@@ -360,13 +322,6 @@ public class LevelManager : MonoBehaviour
         remainingTime = 30.0f - timeSpent;
         remainingTime = Mathf.Round(remainingTime);
     }
-
-    //This method is invoked when the player failed to score a certain amount of point to progress to another level.
-    public void GameOver()
-    {
-        LineScript.Instance.DestroyLineInstnces();
-        StartCoroutine(GameOverDelay());
-    }
     //This creates delay at every generation of new items on the screen
     IEnumerator GenerateDelay()
     {
@@ -374,67 +329,10 @@ public class LevelManager : MonoBehaviour
         GenerateChallenge();
     }
     
-    //creates delay on failed disabling to match the line destructions
-    IEnumerator GameOverDelay()
-    {
-        yield return new WaitForSeconds(1.0f);
-        //disabling all gameobjects from the device screen
-        leftSpot[0].SetActive(false);
-        leftSpot[1].SetActive(false);
-        leftSpot[2].SetActive(false);
-        rightSpot[0].SetActive(false);
-        rightSpot[1].SetActive(false);
-        rightSpot[2].SetActive(false);
-        pausedBtn.SetActive(false);
-        prevBtn.SetActive(false);
-        coin.SetActive(false);
-        scoreText.gameObject.SetActive(false);
-        alarm.SetActive(false);
-        evaluatePlayer.SetActive(false);
-        faileScoreText.text = LineScript.Instance.score.ToString();
-        timer = 0;
-        began = false;
-        gameOverAnim.SetTrigger("in");
-    }
-    //creates delay on passed disabling
-    IEnumerator CompleteDelay()
-    {
-        yield return new WaitForSeconds(1.0f);
-        //disabling all game objects from the screen
-        leftSpot[0].SetActive(false);
-        leftSpot[1].SetActive(false);
-        leftSpot[2].SetActive(false);
-        rightSpot[0].SetActive(false);
-        rightSpot[1].SetActive(false);
-        rightSpot[2].SetActive(false);
-        pausedBtn.SetActive(false);
-        prevBtn.SetActive(false);
-        coin.SetActive(false);
-        scoreText.gameObject.SetActive(false);
-        alarm.SetActive(false);
-        began = false;
-        completeAnim.SetTrigger("in");
-    }
     IEnumerator GiftDelay()
     {
         yield return new WaitForSeconds(2.0f);
         gift.Play();
-    }
-    IEnumerator EvaluateDelay()
-    {
-        yield return new WaitForSeconds(1.0f);
-        //disabling all game objects from the screen
-        leftSpot[0].SetActive(false);
-        leftSpot[1].SetActive(false);
-        leftSpot[2].SetActive(false);
-        rightSpot[0].SetActive(false);
-        rightSpot[1].SetActive(false);
-        rightSpot[2].SetActive(false);
-        evaluatePlayer.SetActive(true);
-        StartCoroutine(RollTestPlay());
-        pausedBtn.SetActive(false);
-        prevBtn.SetActive(false);
-
     }
     IEnumerator BonusDelay()
     {
@@ -448,26 +346,12 @@ public class LevelManager : MonoBehaviour
         coin.SetActive(false);
         scoreText.gameObject.SetActive(false);
         alarm.SetActive(false);
-        pausedBtn.SetActive(false);
-        prevBtn.SetActive(false);
         bonusAnim.SetTrigger("in");
     }
-    //Playes test in
-    IEnumerator RollTestPlay()
+    //triggers when the gift is clicked
+    public void CloseBonus()
     {
-        yield return new WaitForSeconds(0.5f);
-        if (evaluatePlayer.active)
-        {
-            objImageAnim.SetTrigger("in");
-            testImageAnim.SetTrigger("in");
-            leftBtnAnim.SetTrigger("in");
-            middleBtnAnim.SetTrigger("in");
-            rightBtnAnim.SetTrigger("in");
-        } 
-    }
-
-    void CheckChoice()
-    {
-
+        //showRewardedAd.onClick.AddListener(AdsManager.Instance.LoadRewardedAd);
+        bonusAnim.SetTrigger("out");
     }
 }
