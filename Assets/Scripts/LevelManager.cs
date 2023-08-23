@@ -35,6 +35,7 @@ public class LevelManager : MonoBehaviour
 
     //particles
     public ParticleSystem gift;
+    public ParticleSystem finished;
 
     //rewarded ad
     public Button showRewardedAd;
@@ -141,7 +142,7 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         began = true;
-        minScore = 10;
+        minScore = 96;
         timeSpent = 0.0f;
         playRounds = 8;
         countRounds = 0;
@@ -299,14 +300,22 @@ public class LevelManager : MonoBehaviour
             if (countRounds != playRounds && timer != 0)
             {
                 StartCoroutine(GenerateDelay()); // Not performing its work now ***** something wrong
-            }
-            else
-            {
-                //timeSpent = timer;
-                if (LineScript.Instance.score >= minScore)
+                if (timer <= 20 && LineScript.Instance.score <= 40)
                 {
                     Bonus();
                     StartCoroutine(GiftDelay());
+                }
+            }
+            else
+            {
+                if(LineScript.Instance.score != 96)
+                {
+                    LineScript.Instance.DestroyLineInstnces();
+                    GameOver();
+                }else
+                {
+                    LineScript.Instance.DestroyLineInstnces();
+                    Congrats();
                 }
             }
         }
@@ -366,5 +375,18 @@ public class LevelManager : MonoBehaviour
         rightSpot[1].SetActive(false);
         rightSpot[2].SetActive(false);
         gameBar.SetActive(false);
+    }
+
+    public void Congrats()
+    {
+        congrats.SetActive(true);
+        leftSpot[0].SetActive(false);
+        leftSpot[1].SetActive(false);
+        leftSpot[2].SetActive(false);
+        rightSpot[0].SetActive(false);
+        rightSpot[1].SetActive(false);
+        rightSpot[2].SetActive(false);
+        gameBar.SetActive(false);
+        finished.Play();
     }
 }
