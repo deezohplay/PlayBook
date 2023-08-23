@@ -26,11 +26,11 @@ public class LevelManager : MonoBehaviour
     private float timerSpeed = 0.6f;
 
     //panels
-    public GameObject coin;
-    public GameObject alarm;
+    public GameObject gameBar;
+    public GameObject gameOver;
+    public GameObject congrats;
 
     //Animator
-    public Animator coinAnim;
     public Animator bonusAnim;
 
     //particles
@@ -143,9 +143,9 @@ public class LevelManager : MonoBehaviour
         began = true;
         minScore = 10;
         timeSpent = 0.0f;
-        playRounds = 2;
+        playRounds = 8;
         countRounds = 0;
-        timer = 30.0f;
+        timer = 60.0f;
         GenerateChallenge();
     }
 
@@ -155,6 +155,11 @@ public class LevelManager : MonoBehaviour
         if (began == true)
         {
             StartCoroutine(LittlelDelayOnGamePlay());
+        }
+        if(timer <= 0)
+        {
+            LineScript.Instance.DestroyLineInstnces();
+            GameOver();
         }
     }
 
@@ -291,14 +296,13 @@ public class LevelManager : MonoBehaviour
         {
             // destroys lines created during the previous attempt
             LineScript.Instance.DestroyLineInstnces();
-            if (countRounds != playRounds)
+            if (countRounds != playRounds && timer != 0)
             {
                 StartCoroutine(GenerateDelay()); // Not performing its work now ***** something wrong
             }
             else
             {
-                timeSpent = timer;
-
+                //timeSpent = timer;
                 if (LineScript.Instance.score >= minScore)
                 {
                     Bonus();
@@ -319,7 +323,7 @@ public class LevelManager : MonoBehaviour
     //time calculations ** not used yet, this is the gift
     void TimeCalc()
     {
-        remainingTime = 30.0f - timeSpent;
+        remainingTime = 60.0f - timeSpent;
         remainingTime = Mathf.Round(remainingTime);
     }
     //This creates delay at every generation of new items on the screen
@@ -343,9 +347,7 @@ public class LevelManager : MonoBehaviour
         rightSpot[0].SetActive(false);
         rightSpot[1].SetActive(false);
         rightSpot[2].SetActive(false);
-        coin.SetActive(false);
-        scoreText.gameObject.SetActive(false);
-        alarm.SetActive(false);
+        gameBar.SetActive(false);
         bonusAnim.SetTrigger("in");
     }
     //triggers when the gift is clicked
@@ -353,5 +355,16 @@ public class LevelManager : MonoBehaviour
     {
         //showRewardedAd.onClick.AddListener(AdsManager.Instance.LoadRewardedAd);
         bonusAnim.SetTrigger("out");
+    }
+    public void GameOver()
+    {
+        gameOver.SetActive(true);
+        leftSpot[0].SetActive(false);
+        leftSpot[1].SetActive(false);
+        leftSpot[2].SetActive(false);
+        rightSpot[0].SetActive(false);
+        rightSpot[1].SetActive(false);
+        rightSpot[2].SetActive(false);
+        gameBar.SetActive(false);
     }
 }

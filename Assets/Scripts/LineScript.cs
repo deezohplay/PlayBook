@@ -107,6 +107,7 @@ public class LineScript : MonoBehaviour
                 pos = Camera.main.ScreenToWorldPoint(mousePos);
                 dot1 = Instantiate(dotPrefab, pos, Quaternion.identity, dotParent);
                 dotCount++;
+               
                 
             }
             mousePos = Input.mousePosition;
@@ -131,17 +132,17 @@ public class LineScript : MonoBehaviour
                     hitRight.collider.enabled = false;
                     if (letter == item)
                     {
-                        score += 2;
+                        score += 4;
                         LevelManager.Instance.itemAudios[0].PlayOneShot(itemClips, 1.0f);
                         LevelManager.Instance.scoreText.text = score.ToString();
                         LevelManager.Instance.tick_r1.SetActive(true);
-                        LevelManager.Instance.coinAnim.SetTrigger("coin_dance");
                         
                     }
                     else
                     {
                         LevelManager.Instance.cross_r1.SetActive(true);
                         LevelManager.Instance.incoAudios[0].PlayOneShot(incoClips, 1.0f);
+                        StartCoroutine(GameOverDelay());
                     }
                 }
                 else if (hitRight.collider == LevelManager.Instance.itemColliders[1])
@@ -152,16 +153,16 @@ public class LineScript : MonoBehaviour
                     hitRight.collider.enabled = false;
                     if (letter == item)
                     {
-                        score += 2;
+                        score += 4;
                         LevelManager.Instance.itemAudios[1].PlayOneShot(itemClips, 1.0f);
                         LevelManager.Instance.scoreText.text = score.ToString();
                         LevelManager.Instance.tick_r2.SetActive(true);
-                        LevelManager.Instance.coinAnim.SetTrigger("coin_dance");
                     }
                     else
                     {
                         LevelManager.Instance.cross_r2.SetActive(true);
                         LevelManager.Instance.incoAudios[1].PlayOneShot(incoClips, 1.0f);
+                        StartCoroutine(GameOverDelay());
                     }
                 }
                 else if (hitRight.collider == LevelManager.Instance.itemColliders[2])
@@ -172,16 +173,16 @@ public class LineScript : MonoBehaviour
                     hitRight.collider.enabled = false;
                     if (letter == item)
                     {
-                        score += 2;
+                        score += 4;
                         LevelManager.Instance.itemAudios[2].PlayOneShot(itemClips, 1.0f);
                         LevelManager.Instance.scoreText.text = score.ToString();
                         LevelManager.Instance.tick_r3.SetActive(true);
-                        LevelManager.Instance.coinAnim.SetTrigger("coin_dance");
                     }
                     else
                     {
                         LevelManager.Instance.cross_r3.SetActive(true);
                         LevelManager.Instance.incoAudios[2].PlayOneShot(incoClips, 1.0f);
+                        StartCoroutine(GameOverDelay());
                     }
                 }
             }
@@ -314,7 +315,6 @@ public class LineScript : MonoBehaviour
                                     LevelManager.Instance.itemAudios[0].PlayOneShot(itemClips, 1.0f);
                                     LevelManager.Instance.scoreText.text = score.ToString();
                                     LevelManager.Instance.tick_r1.SetActive(true);
-                                    LevelManager.Instance.coinAnim.SetTrigger("coin_dance");
                                 }
                                 else
                                 {
@@ -334,7 +334,6 @@ public class LineScript : MonoBehaviour
                                     LevelManager.Instance.itemAudios[1].PlayOneShot(itemClips, 1.0f);
                                     LevelManager.Instance.scoreText.text = score.ToString();
                                     LevelManager.Instance.tick_r2.SetActive(true);
-                                    LevelManager.Instance.coinAnim.SetTrigger("coin_dance");
                                 }
                                 else
                                 {
@@ -354,7 +353,6 @@ public class LineScript : MonoBehaviour
                                     LevelManager.Instance.itemAudios[2].PlayOneShot(itemClips, 1.0f);
                                     LevelManager.Instance.scoreText.text = score.ToString();
                                     LevelManager.Instance.tick_r3.SetActive(true);
-                                    LevelManager.Instance.coinAnim.SetTrigger("coin_dance");
                                 }
                                 else
                                 {
@@ -453,6 +451,12 @@ public class LineScript : MonoBehaviour
         LevelManager.Instance.cross_r1.SetActive(false);
         LevelManager.Instance.cross_r2.SetActive(false);
         LevelManager.Instance.cross_r3.SetActive(false);
+    }
+    IEnumerator GameOverDelay()
+    {
+        DestroyLineInstnces();
+        yield return new WaitForSeconds (1.0f);
+        LevelManager.Instance.GameOver();
     }
 
 }
