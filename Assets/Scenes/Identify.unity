@@ -1863,6 +1863,7 @@ MonoBehaviour:
   congrats: {fileID: 1683850390}
   bonusAnim: {fileID: 1344595153}
   gift: {fileID: 1865888880}
+  finished: {fileID: 1271879606}
   showRewardedAd: {fileID: 1769913916}
   letterHolders:
   - {fileID: 51661816}
@@ -2278,7 +2279,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1090161189
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8442,7 +8443,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1683850391
 RectTransform:
   m_ObjectHideFlags: 0

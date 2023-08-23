@@ -162,6 +162,11 @@ public class LevelManager : MonoBehaviour
             LineScript.Instance.DestroyLineInstnces();
             GameOver();
         }
+        if (timer <= 20 && LineScript.Instance.score <= 40)
+        {
+            Bonus();
+            StartCoroutine(GiftDelay());
+        }
     }
 
     //Generate Indices
@@ -300,11 +305,7 @@ public class LevelManager : MonoBehaviour
             if (countRounds != playRounds && timer != 0)
             {
                 StartCoroutine(GenerateDelay()); // Not performing its work now ***** something wrong
-                if (timer <= 20 && LineScript.Instance.score <= 40)
-                {
-                    Bonus();
-                    StartCoroutine(GiftDelay());
-                }
+                
             }
             else
             {
